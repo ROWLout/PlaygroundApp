@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         sendButton.setOnClickListener {
             val message = editText.text.toString()
-            if(message.isNullOrEmpty()) {
+            if(message.isEmpty()) {
                 Toast.makeText(applicationContext, "Bitte Text eingeben!", Toast.LENGTH_SHORT).show()
             }else{
                 sendMessage(message)
