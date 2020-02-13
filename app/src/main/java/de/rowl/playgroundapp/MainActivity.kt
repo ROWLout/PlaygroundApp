@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         val sendButton: Button = findViewById(R.id.send_button)
         val editText = findViewById<EditText>(R.id.editText)
+
         val messages = mutableListOf<Message>()
         for (i in 0..9)
             messages.add(Message("Boarisch", "De mim Huat de san guad", "Quirin"))
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         sendButton.setOnClickListener {
             val newMessage = editText.text.toString()
             if(newMessage.isEmpty()) {
-                Toast.makeText(applicationContext, "Bitte Text eingeben!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Dei Text is laar! Bitt schee Text eingeben!", Toast.LENGTH_SHORT).show()
             }else{
                 sendMessage(newMessage)
             }
