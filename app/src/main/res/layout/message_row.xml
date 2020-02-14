@@ -44,6 +44,7 @@
                 android:id="@+id/message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="8dp"
                 android:textSize="20sp"
                 android:textColor="#0099D5"
                 app:layout_constraintBottom_toBottomOf="parent"
