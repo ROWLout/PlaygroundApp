@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         val messages = mutableListOf<Message>()
         for (i in 0..9)
-            messages.add(Message("Boarisch", "De mim Huat de san guad", "Quirin"))
+            messages.add(Message("Boarisch", "De mim Huat de san guad, de mim Kappe san dappe", "Quirin"))
 
         recyclerView.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         sendButton.setOnClickListener {
             val newMessage = editText.text.toString()
             if(newMessage.isEmpty()) {
-                Toast.makeText(applicationContext, "Dei Text is laar! Bitt schee Text eingeben!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Dei Spruch is laar, du Gloiffe! Bittschön Text eigebn", Toast.LENGTH_SHORT).show()
             }else{
                 sendMessage(newMessage)
             }
