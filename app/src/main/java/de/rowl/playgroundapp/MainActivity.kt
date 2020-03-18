@@ -3,6 +3,7 @@ package de.rowl.playgroundapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.StrictMode
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        StrictMode.setThreadPolicy(StrictMode.ThreadPolicy.Builder().permitAll().build())
 
         val sendButton: Button = findViewById(R.id.send_button)
         val editText = findViewById<EditText>(R.id.editText)
@@ -36,6 +38,11 @@ class MainActivity : AppCompatActivity() {
                 sendMessage(newMessage)
             }
         }
+
+        val service:SearchService = Retrofits().create()
+        val response:TotalCountResponse? = service.getTotalCount('C').execute().body()
+        val responseBike:TotalCountResponse? = service.getTotalCount('B').execute().body()
+        sendButton.text = "Fahrzeuge ${response?.tc}\n Bikes ${responseBike?.tc}"
     }
 
     private fun sendMessage(newMessage: String) {

@@ -1,12 +1,12 @@
 package de.rowl.playgroundapp
 
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.*
 
 
 interface SearchService {
-    @GET("users/{user}/repos")
-    fun listRepos(@Path("user") user: String):
-            Call<SearchResponse>
+    @Headers("Authorization: Basic bW9iaWxlLWFwcC1hbmRyb2lkOjJkMjMwNmQ0NDZjZTE3OTJiNDExZTM5NWQwMDAzOWY5")
+    @GET("https://classified-search.a.autoscout24.com/classified-search/totalcount")
+
+    fun getTotalCount (@Query("atype") serviceType: Char): Call<TotalCountResponse>
 }
